@@ -1,0 +1,32 @@
+button {
+    padding: 0.5em 1em;
+    background-color: var(--grey);
+    border-radius: 5px;
+    /*border-color: orangered;*/
+    border-color: var(--blue);
+}
+
+
+.reservate-button,
+.buy-book-button,
+.sign-up-button,
+.login-button,
+.logout-button,
+.select-button,
+.quantity-button,
+.toggleButton {
+    font-size: 20px;
+    background-color: orange;
+}
+
+
+.confirm-payment-button,
+.confirm-booking-button {
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+
+button + button {
+    margin-left: 2em;
+}
