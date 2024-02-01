@@ -1,12 +1,9 @@
-import React, {useContext} from "react";
-import {ClickContext} from "../../context/ClickContext";
+import React from "react";
 
-function Result() {
-
-    const {clicks} = useContext (ClickContext)
+function Result({clicks}) {
 
     return(
-        <h2>Aantal Personen: {clicks}</h2>
+        <h3>Aantal ingeschreven: {clicks}</h3>
     );
 }
 

@@ -1,13 +1,26 @@
+
 button {
     padding: 0.5em 1em;
     background-color: var(--grey);
     border-radius: 5px;
     /*border-color: orangered;*/
-    border-color: var(--blue);
+    border-color: var(--red);
+}
+
+.activity-type-button {
+    border-radius: 5px;
+    font-size: 20px;
+    color: #008b8b;
+    background-color: var(--white);
 }
 
 
+.day-button,
+.account-button,
+.startpagina-button,
+.manager-button,
 .reservate-button,
+.confirm-mailing-button,
 .buy-book-button,
 .sign-up-button,
 .login-button,
@@ -16,14 +29,18 @@ button {
 .quantity-button,
 .toggleButton {
     font-size: 20px;
-    background-color: orange;
+    background-color: #008b8b;
 }
 
+.print-list-button
+{
+    font-size: 20px;
+    background-color: #7a7a7a;
+}
 
-.confirm-payment-button,
 .confirm-booking-button {
     color: var(--white);
-    background-color: var(--blue);
+    background-color: var(--red);
 }
 
 

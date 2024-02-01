@@ -83,7 +83,7 @@ function AuthContextProvider({children}) {
                         address:response.data.address,
                         zipcode:response.data.zipcode,
                         city:response.data.city,
-                        country:response.data.country,
+                        phone:response.data.phone,
                         authorities:response.data.authority,
                     },
                     status: "done"

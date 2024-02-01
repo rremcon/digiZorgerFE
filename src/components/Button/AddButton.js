@@ -1,5 +1,7 @@
 import React, {useContext} from "react";
 import {ClickContext} from "../../context/ClickContext";
+import Activity from "../Activity/Activity";
+import activity from "../Activity/Activity";
 
 function Addbutton() {
 
@@ -9,7 +11,7 @@ function Addbutton() {
         <button type="button"
                 className="quantity-button"
                 onClick={plusOneFunction}
-                disabled={clicks === 6}
+                disabled={clicks === 1}
         >
             +
         </button>
