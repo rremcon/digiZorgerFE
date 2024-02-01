@@ -85,8 +85,6 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-          env:
-            CI: false
           npm run test --if-present
 
       #ZIP the build directory
