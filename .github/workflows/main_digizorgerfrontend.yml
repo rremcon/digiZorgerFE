@@ -61,6 +61,10 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
+
+
+
+
 name: Build and deploy Node.js app to Azure Web App - digizorgerfrontend
 
 on:
@@ -87,7 +91,7 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
-      #ZIP the build directory
+      #ZIP the build directory, and increase the deployment speed.
       - name: Zip Release
         uses: TheDoctor0/zip-release@0.7.6
         with:
