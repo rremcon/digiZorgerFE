@@ -1,11 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from "axios";
 import Button from "../components/Button/Button";
 import './Activities.css';
 import Activity from "../components/Activity/Activity";
+import Result from "../components/Result/Result";
+import {ClickContext} from "../context/ClickContext";
+import {AuthContext} from "../context/AuthContext";
+import './Activities.css';
+import "../components/Activity/Activity.css";
+
 
 function Activities() {
+
+    const {user} = useContext(AuthContext);
+    const {minOneFunction, plusOneFunction, clicks} = useContext (ClickContext)
 
     const [activities, setActivities] = useState([]);
     const [confirm, setConfirm] = useState(false);
@@ -129,11 +138,10 @@ function Activities() {
                                             <br/>
 
                                             <Button
-                                                className="reservate-button"
+                                                className="select-button"
                                                 type="submit"
-                                                // onClick={reservateActivity}
-                                            >Selecteer
-                                                {confirm === true && <p>U bent ingeschreven</p>}
+                                                onClick={plusOneFunction}
+                                            >Aanmelden
                                             </Button>
 
                                         </div>

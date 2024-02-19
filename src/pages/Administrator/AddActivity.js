@@ -6,6 +6,7 @@ import Button from "../../components/Button/Button";
 function AddActivity() {
 
     const [id, setId] = useState("");
+    const [category, setCategory] = useState("");
     const [name, setName] = useState("");
     const [day, setDay] = useState("");
     const [date, setDate] = useState("");
@@ -29,8 +30,10 @@ function AddActivity() {
         }
 
         try{
+            // const response = await axios.post(`http://digizorgerbackend.azurewebsites.net/activities`, {
             const response = await axios.post(`http://localhost:8080/activities`, {
-                    // id: id,
+                    id: id,
+                    category: category,
                     name: name,
                     day: day,
                     date: date,
@@ -58,10 +61,11 @@ function AddActivity() {
     return (
         <>
             <main>
+
                 <div className="form-container">
                     <form onSubmit={addActivity}>
                         <h1 className="form-title">Activiteit toevoegen</h1>
-                        {/*<br/>*/}
+                        <br/>
                         {/*<input*/}
                         {/*    type="id"*/}
                         {/*    id="id-field"*/}
@@ -69,7 +73,38 @@ function AddActivity() {
                         {/*    onChange={(e) => setId(e.target.value)}*/}
                         {/*    name="id"*/}
                         {/*    placeholder="id"/>*/}
-                        <br/>
+                        {/*<br/>*/}
+
+
+                        {/*<input*/}
+                        {/*    type="text"*/}
+                        {/*    category="category-field"*/}
+                        {/*    value={category}*/}
+                        {/*    onChange={(e) => setCategory(e.target.value)}*/}
+                        {/*    name="category"*/}
+                        {/*    placeholder="categorie"/>*/}
+                        {/*<br/>*/}
+
+
+                        <label htmlFor="category">
+                            Categorie:
+                            <select
+                                type="text"
+                                id="category"
+                                name="category-field"
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
+                            >
+                                <option value="StandaardBasis">
+                                    StandaardBasis
+                                </option>
+                                <option value="ProjectBasis">
+                                    ProjectBasis
+                                </option>
+                            </select>
+                        </label>
+
+
                         <input
                             type="text"
                             id="name-field"
@@ -78,14 +113,44 @@ function AddActivity() {
                             name="name"
                             placeholder="naam activiteit"/>
                         <br/>
-                        <input
-                            type="text"
-                            id="day-field"
-                            value={day}
-                            onChange={(e) => setDay(e.target.value)}
-                            name="day"
-                            placeholder="dag"/>
-                        <br/>
+                        {/*<input*/}
+                        {/*    type="text"*/}
+                        {/*    id="day-field"*/}
+                        {/*    value={day}*/}
+                        {/*    onChange={(e) => setDay(e.target.value)}*/}
+                        {/*    name="day"*/}
+                        {/*    placeholder="dag"/>*/}
+                        {/*<br/>*/}
+
+
+                        <label htmlFor="day">
+                            {/**Dag:*/}
+                            <select
+                                type="text"
+                                id="day"
+                                name="day-field"
+                                value={day}
+                                onChange={(e) => setDay(e.target.value)}
+                            >
+                                <option value="Maandag">
+                                    Maandag
+                                </option>
+                                <option value="Dinsdag">
+                                    Dinsdag
+                                </option>
+                                <option value="Woensdag">
+                                    Woensdag
+                                </option>
+                                <option value="Donderdag">
+                                    Donderdag
+                                </option>
+                                <option value="Vrijdag">
+                                    Vrijdag
+                                </option>
+                            </select>
+                        </label>
+
+
                         <div>{errormessage}</div>
                         <input
                             type="date"
@@ -133,11 +198,12 @@ function AddActivity() {
                     <Button
                         type="submit"
                         onClick={addActivity}
-                    >Toevoegen
-                    {confirm === true && <p>Activiteit toegevoegd!</p>}
-                </Button>
+                    >Activiteit toevoegen
+                        {confirm === true && <p>Activiteit toegevoegd!</p>}
+                    </Button>
 
-            </div>
+                </div>
+
             </main>
         </>
     );

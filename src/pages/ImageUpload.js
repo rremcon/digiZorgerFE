@@ -26,12 +26,13 @@ function ImageUpload() {
     e.preventDefault();
     // maak een nieuw FormData object (ingebouwd type van JavaScript)
     const formData = new FormData();
-    // Voeg daar ons bestand uit de state aan toe onder de key "file"
+    // Voeg daar het bestand uit de state aan toe onder de key "file"
     formData.append("file", file);
 
     try {
       // verstuur formData object en geef in de header aan dat het om een form-data type gaat
       // Let op: we wijzigen nu ALTIJD de afbeelding voor account 1, als je een ander account wil kiezen of dit dynamisch wil maken, pas je de url aan!
+      // const result = await axios.post('http://localhost:8080/activities/1/photo', formData,
       // const result = await axios.post('http://localhost:8080/accounts/1/photo', formData,
       // const result = await axios.post(`http://localhost:8080/accounts/${account_id}/photo`, formData,
       const result = await axios.post('http://localhost:8080/upload', formData,

@@ -7,8 +7,8 @@ import Activity from "../components/Activity/Activity";
 import Result from "../components/Result/Result";
 import {ClickContext} from "../context/ClickContext";
 import {AuthContext} from "../context/AuthContext";
-import activity from "../components/Activity/Activity";
 import "../components/Activity/Activity.css";
+import reservationsWaiting from "./Administrator/ReservationsWaiting";
 
 
 const ReservateActivity = () => {
@@ -97,7 +97,7 @@ const ReservateActivity = () => {
                 registrant: user.lastname + " " + user.address + " " + user.zipcode + " " + user.city + " " + user.phone + " " + user.email,
                 quantity: clicks,
                 price: price,
-                status: 'wachtend',
+                status: "wachtend",
             });
             console.log(response.data);
             setConfirmWaiting(true);
@@ -151,42 +151,38 @@ const ReservateActivity = () => {
                     />
                 </div>
 
-                <Result
-                    clicks={clicks}
-                />
+                {/*<Result*/}
+                {/*    clicks={clicks}*/}
+                {/*/>*/}
 
                 <br/>
                 <br/>
 
-                <Button
-                    className="quantity-button"
-                    type="button"
-                    onClick={plusOneFunction}
-                    disabled={clicks === 1}
-                    children="Aanmelden"
-                />
+                {/*<Button*/}
+                {/*    className="quantity-button"*/}
+                {/*    type="button"*/}
+                {/*    onClick={plusOneFunction}*/}
+                {/*    disabled={clicks === 1}*/}
+                {/*    children="Aanmelden"*/}
+                {/*/>*/}
 
-                <br/>
-                <br/>
 
-                <Button
-                    className="quantity-button"
-                    type="button"
-                    onClick={minOneFunction}
-                    disabled={clicks === 0}
-                    children="Annuleren"
-                />
-
-                <br/>
-                <br/>
+                {/*<Button*/}
+                {/*    className="quantity-button"*/}
+                {/*    type="button"*/}
+                {/*    onClick={minOneFunction}*/}
+                {/*    disabled={clicks === 0}*/}
+                {/*    children="Annuleren"*/}
+                {/*/>*/}
 
 
                 <Button
                     className="reservate-button"
                     type="submit"
                     onClick={reservateActivity}
+                    disabled={clicks === availableplaces}
                 >Inschrijven
-                    {confirm === true && <p>U bent ingeschreven</p>}
+                    {confirm === true && <p>U bent ingeschreven.</p>}
                 </Button>
 
                 <Button
@@ -197,13 +193,16 @@ const ReservateActivity = () => {
                     {confirmWaiting === true && <p>U bent ingeschreven op de wachtlijst.</p>}
                 </Button>
 
+                <br/>
+                <br/>
 
                 <Button
                     className="confirm-mailing-button"
                     type="submit"
                     onClick={mailingConfirmation}
-                >Bevestig
-                    {confirmMailing === true && <p>Bevestiging verstuurd!</p>}
+                    disabled={clicks === availableplaces}
+                >Bevestig via mail
+                    {confirmMailing === true && <p>Bevestiging is verstuurd.</p>}
                 </Button>
 
             </main>

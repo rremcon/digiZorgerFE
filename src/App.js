@@ -33,6 +33,7 @@ import ReservationsDigiTraining from "./pages/Administrator/ReservationsDigiTrai
 import ReservationsWelcome from "./pages/Administrator/ReservationsWelcome";
 import ReservationsWorkshop from "./pages/Administrator/ReservationsWorkshop";
 import ReservationsWeekendTrip from "./pages/Administrator/ReservationsWeekendTrip";
+import ReservationsWaiting from "./pages/Administrator/ReservationsWaiting";
 import ActivitiesRegularBasis from "./pages/ActivitiesRegularBasis";
 import ActivitiesProjectBasis from "./pages/ActivitiesProjectBasis";
 import ActivitiesRegularMonday from "./pages/ActivitiesRegularMonday";
@@ -45,6 +46,7 @@ import ActivitiesProjectTuesday from "./pages/ActivitiesProjectTuesday";
 import ActivitiesProjectWednesday from "./pages/ActivitiesProjectWednesday";
 import ActivitiesProjectThursday from "./pages/ActivitiesProjectThursday";
 import ActivitiesProjectFriday from "./pages/ActivitiesProjectFriday";
+import AdminActivities from "./pages/Administrator/AdminActivities";
 
 
 function App() {
@@ -68,6 +70,7 @@ function App() {
             <Route path="/registreren" element={<Registrate/>} />
             <Route path="/profielpagina" element={ isAuth ? <Profile/> : <Navigate to="/"/>} />
             <Route path="/startpagina" element={ isAuth ? <Startpage/> : <Navigate to="/"/>} />
+            <Route path="/admin/activiteiten" element={<AdminActivities/>} />
             <Route path="/activiteiten" element={<Activities/>} />
             <Route path="/activiteiten/standaardbasis" element={<ActivitiesRegularBasis/>} />
             <Route path="/activiteiten/projectbasis" element={<ActivitiesProjectBasis/>} />
@@ -100,6 +103,7 @@ function App() {
             <Route path="/reserveringen/welkom" element={<ReservationsWelcome/>} />
             <Route path="/reserveringen/workshop" element={<ReservationsWorkshop/>} />
             <Route path="/reserveringen/weekendweg" element={<ReservationsWeekendTrip/>} />
+            <Route path="/reserveringen/wachtend" element={<ReservationsWaiting/>} />
 
 
             <Route path="/activiteit/:id" element={<ReservateActivity/>} />

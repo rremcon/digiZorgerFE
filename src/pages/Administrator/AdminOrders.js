@@ -17,6 +17,7 @@ function AdminOrders() {
         async function fetchOrders() {
 
             try {
+                // const response = await axios.get('http://digizorgerbackend.azurewebsites.net/reservations', {
                 const response = await axios.get('http://localhost:8080/reservations', {
                     headers: {
                         "Content-Type": "application/json",
@@ -45,6 +46,7 @@ function AdminOrders() {
 
     async function deleteOrder(id) {
         try {
+            // const response = await axios.delete(`http://digizorgerbackend.azurewebsites.net/reservations/${id}`, {
             const response = await axios.delete(`http://localhost:8080/reservations/${id}`, {
                 headers: {
                     "Content-Type": "application/json",
@@ -66,24 +68,6 @@ function AdminOrders() {
 
                     <div className="activity-grid-container">
 
-                        <Link to={`/reserveringen/zwemmen`}>
-                            <Button
-                                className="activity-type-button"
-                                type="button"
-                                children="Zwemmen"
-                            />
-                        </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
-                        <Link to={`/reserveringen/golfen`}>
-                            <Button
-                                className="activity-type-button"
-                                type="button"
-                                children="Golfen"
-                            />
-                        </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
                         <Link to={`/reserveringen/biljarten`}>
                             <Button
                                 className="activity-type-button"
@@ -102,33 +86,6 @@ function AdminOrders() {
                         </Link>
                         {/*<br/>*/}
                         {/*<br/>*/}
-                        <Link to={`/reserveringen/fietsen`}>
-                            <Button
-                                className="activity-type-button"
-                                type="button"
-                                children="Fietsen"
-                            />
-                        </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
-                        <Link to={`/reserveringen/yoga`}>
-                            <Button
-                                className="activity-type-button"
-                                type="button"
-                                children="Yoga"
-                            />
-                        </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
-                        <Link to={`/reserveringen/sjoelen`}>
-                            <Button
-                                className="activity-type-button"
-                                type="button"
-                                children="Sjoelen"
-                            />
-                        </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
                         <Link to={`/reserveringen/dansen`}>
                             <Button
                                 className="activity-type-button"
@@ -138,20 +95,20 @@ function AdminOrders() {
                         </Link>
                         {/*<br/>*/}
                         {/*<br/>*/}
-                        <Link to={`/reserveringen/kaarten`}>
+                        <Link to={`/reserveringen/fietsen`}>
                             <Button
                                 className="activity-type-button"
                                 type="button"
-                                children="Kaarten"
+                                children="Fietsen"
                             />
                         </Link>
                         {/*<br/>*/}
                         {/*<br/>*/}
-                        <Link to={`/reserveringen/jeudeboule`}>
+                        <Link to={`/reserveringen/golfen`}>
                             <Button
                                 className="activity-type-button"
                                 type="button"
-                                children="Jeu De Boule"
+                                children="Golfen"
                             />
                         </Link>
                         {/*<br/>*/}
@@ -165,11 +122,29 @@ function AdminOrders() {
                         </Link>
                         {/*<br/>*/}
                         {/*<br/>*/}
-                        <Link to={`/reserveringen/wandelen`}>
+                        <Link to={`/reserveringen/jeudeboule`}>
                             <Button
                                 className="activity-type-button"
                                 type="button"
-                                children="Wandelen"
+                                children="Jeu De Boule"
+                            />
+                        </Link>
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+                        <Link to={`/reserveringen/kaarten`}>
+                            <Button
+                                className="activity-type-button"
+                                type="button"
+                                children="Kaarten"
+                            />
+                        </Link>
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+                        <Link to={`/reserveringen/sjoelen`}>
+                            <Button
+                                className="activity-type-button"
+                                type="button"
+                                children="Sjoelen"
                             />
                         </Link>
                         {/*<br/>*/}
@@ -179,6 +154,24 @@ function AdminOrders() {
                                 className="activity-type-button"
                                 type="button"
                                 children="Training Digitalis"
+                            />
+                        </Link>
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+                        <Link to={`/reserveringen/wandelen`}>
+                            <Button
+                                className="activity-type-button"
+                                type="button"
+                                children="Wandelen"
+                            />
+                        </Link>
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+                        <Link to={`/reserveringen/weekendweg`}>
+                            <Button
+                                className="activity-type-button"
+                                type="button"
+                                children="Weekend Weg"
                             />
                         </Link>
                         {/*<br/>*/}
@@ -201,18 +194,33 @@ function AdminOrders() {
                         </Link>
                         {/*<br/>*/}
                         {/*<br/>*/}
-                        <Link to={`/reserveringen/weekendweg`}>
+                        <Link to={`/reserveringen/yoga`}>
                             <Button
                                 className="activity-type-button"
                                 type="button"
-                                children="Weekend Weg"
+                                children="Yoga"
                             />
                         </Link>
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+                        <Link to={`/reserveringen/zwemmen`}>
+                            <Button
+                                className="activity-type-button"
+                                type="button"
+                                children="Zwemmen"
+                            />
+                        </Link>
+                        {/*/!*<br/>*!/*/}
+                        {/*/!*<br/>*!/*/}
+                        {/*<Link to={`/reserveringen/wachtend`}>*/}
+                        {/*    <Button*/}
+                        {/*        className="activity-type-button"*/}
+                        {/*        type="button"*/}
+                        {/*        children="Wachtend"*/}
+                        {/*    />*/}
+                        {/*</Link>*/}
 
                     </div>
-
-
-
 
 
                     <br/>
@@ -235,6 +243,7 @@ function AdminOrders() {
                             return <tr key={order.id}>
                                 {/*<td>{order.id}</td>*/}
                                 <td>{order.selecteditem}</td>
+                                {/*<td>{order.registrant.salutation}</td>*/}
                                 <td>{order.registrant}</td>
                                 <td>{order.status}</td>
 
@@ -253,13 +262,19 @@ function AdminOrders() {
                                 {/*    children="wijzig"*/}
                                 {/*/>*/}
 
-                                {/*<Button*/}
-                                {/*    className="select-button"*/}
-                                {/*    type="submit"*/}
-                                {/*    onClick={() => deleteSelected(order.orderid)}*/}
-                                {/*    children="verwijder"*/}
+                                <Button
+                                    className="select-button"
+                                    type="submit"
+                                    // onClick={(e) => changeSelected(e, order.id)}
+                                    children="wijzig"
+                                />
 
-                                {/*/>*/}
+                                <Button
+                                    className="select-button"
+                                    type="submit"
+                                    onClick={() => deleteSelected(order.id)}
+                                    children="verwijder"
+                                />
 
                             </tr>
                         })}
@@ -276,7 +291,7 @@ function AdminOrders() {
                 </div>
             </main>
         </>
-);
+    );
 }
 
 export default AdminOrders;

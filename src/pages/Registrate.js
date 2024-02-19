@@ -228,6 +228,7 @@ function Registrate() {
                     className="sign-up-button"
                     type="submit"
                     onClick={registerUser}
+                    disabled={!choice}
                     children="Registreer"
                 />
 

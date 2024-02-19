@@ -17,6 +17,7 @@ function ReservationsBingo() {
         async function fetchOrders() {
 
             try {
+                // const response = await axios.get('http://digizorgerbackend.azurewebsites.net/reservations/selecteditem/?selecteditem=BINGO', {
                 const response = await axios.get('http://localhost:8080/reservations/selecteditem/?selecteditem=BINGO', {
 
                     headers: {
@@ -46,6 +47,7 @@ function ReservationsBingo() {
 
     async function deleteOrder(id) {
         try {
+            // const response = await axios.delete(`http://digizorgerbackend.azurewebsites.net/reservations/${id}`, {
             const response = await axios.delete(`http://localhost:8080/reservations/${id}`, {
                 headers: {
                     "Content-Type": "application/json",

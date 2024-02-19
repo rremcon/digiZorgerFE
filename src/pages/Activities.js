@@ -1,13 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from "axios";
 import Button from "../components/Button/Button";
 import './Activities.css';
 import Activity from "../components/Activity/Activity";
-
+import Result from "../components/Result/Result";
+import {ClickContext} from "../context/ClickContext";
+import {AuthContext} from "../context/AuthContext";
+import './Activities.css';
+import "../components/Activity/Activity.css";
 
 
 function Activities() {
+
+    const {user} = useContext(AuthContext);
+    const {minOneFunction, plusOneFunction, clicks} = useContext (ClickContext)
 
     const [activities, setActivities] = useState([]);
     const [confirm, setConfirm] = useState(false);
@@ -16,7 +23,7 @@ function Activities() {
     useEffect(()=> {
         async function fetchActivities() {
             try {
-                const response = await axios.get(`http://localhost:8080/activities`);
+                const response = await axios.get(`http://localhost:8080/activities/`);
                 setActivities(response.data);
                 console.log(response.data);
 
@@ -36,7 +43,7 @@ function Activities() {
                 {/*{loading && <p>Loading...</p>}*/}
                 {/*{error && <p>Error: Could not fetch data!</p>}*/}
 
-                <h1 className="page-title">Inschrijfpunt Activiteiten</h1>
+                <h1 className="page-title">Alle Activiteiten</h1>
                 <br/>
                 <br/>
                 <div className="grid-container">
@@ -51,6 +58,9 @@ function Activities() {
                                         <h1 className="box-title">{activity.name.slice(0, 25)}</h1>
                                         <br/>
                                         <img className="box-image" src={activity.img} alt={activity.title}/>
+
+                                        {/*<img className="box-image" src={activity.file} alt={activity.title}/>*/}
+                                        {/*<img className="box-image" src={activity.filename} alt={activity.title}/>*/}
                                         {/*</div>*/}
                                         <div className="grid-box-content">
                                         <h2>{activity.day}</h2>
@@ -80,11 +90,10 @@ function Activities() {
                                             <br/>
 
                                             <Button
-                                                className="reservate-button"
+                                                className="select-button"
                                                 type="submit"
-                                                // onClick={reservateActivity}
-                                            >Inschrijven
-                                                {confirm === true && <p>U bent ingeschreven</p>}
+                                                onClick={plusOneFunction}
+                                            >Aanmelden
                                             </Button>
 
                                         </div>

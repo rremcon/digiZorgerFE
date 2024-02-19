@@ -5,24 +5,22 @@ import Button from "../components/Button/Button";
 
 function AddInhabitant() {
 
-    const [inhabitantSalutation, setInhabitantSalutation] = useState('Dhr.');
+    const [inhabitantSalutation, setInhabitantSalutation] = useState('*');
     const [inhabitantName, setInhabitantName] = useState('');
-    const [inhabitantRoomnumber, setInhabitantRoomnumber] = useState('');
     const [inhabitantHelpingTool, setInhabitantHelpingTool] = useState('Niet van toepassing');
     const [confirm, setConfirm] = useState(false);
 
   async function addInhabitant(e) {
     // voorkom refresh
     e.preventDefault();
-    console.log(inhabitantName, inhabitantSalutation, inhabitantHelpingTool);
+    console.log(inhabitantSalutation, inhabitantName, inhabitantHelpingTool);
 
     try {
         // Verstuur de data in een object en zorg dat de keys overeenkomen met die in de backend
-        const response = await axios.post('http://localhost:8080/persons', {
+        const response = await axios.post('http://localhost:8080/accounts', {
             //     id
             salutation: inhabitantSalutation,
-            name: inhabitantName,
-            roomnumber: inhabitantRoomnumber,
+            lastname: inhabitantName,
             helpingtool: inhabitantHelpingTool,
         });
 
@@ -43,11 +41,15 @@ function AddInhabitant() {
                     <label htmlFor="inhabitant-salutation">
                         Aanhef:
                         <select
-                            name="inhabitant-salutation-field"
+                            type="text"
                             id="inhabitant-salutation"
+                            name="inhabitant-salutation-field"
                             value={inhabitantSalutation}
                             onChange={(e) => setInhabitantSalutation(e.target.value)}
                         >
+                            <option value="*">
+                                *
+                            </option>
                             <option value="Dhr.">
                                 Dhr.
                             </option>
@@ -57,8 +59,8 @@ function AddInhabitant() {
                         </select>
                     </label>
 
-        <label htmlFor="inhabitant-name">
-          Achternaam:
+                    <label htmlFor="inhabitant-name">
+                        Achternaam:
           <input
             type="text"
             name="inhabitant-name-field"
@@ -68,20 +70,10 @@ function AddInhabitant() {
           />
         </label>
 
-                    <label htmlFor="inhabitant-roomnumber">
-                        Kamernummer:
-                        <input
-                            type="text"
-                            name="inhabitant-roomnumber-field"
-                            id="inhabitant-roomnumber"
-                            value={inhabitantRoomnumber}
-                            onChange={(e) => setInhabitantRoomnumber(e.target.value)}
-                        />
-                    </label>
-
         <label htmlFor="inhabitant-helpingtool">
           Hulpmiddel:
           <select
+              type="text"
             id="inhabitant-helpingtool"
             name="inhabitant-helpingtool-field"
             value={inhabitantHelpingTool}
@@ -113,7 +105,6 @@ function AddInhabitant() {
                     </Button>
 
       </form>
-
 
             </div>
         </main>

@@ -59,6 +59,7 @@ function AuthContextProvider({children}) {
 
     async function fetchUserData(jwt, id, redirect) {
         try {
+                // const response = await axios.get(`http://digizorgerbackend.azurewebsites.net/accounts/${id}`, {
                 const response = await axios.get(`http://localhost:8080/accounts/${id}`, {
                 headers:
                     {

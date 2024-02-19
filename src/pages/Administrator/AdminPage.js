@@ -3,7 +3,8 @@ import {Link} from "react-router-dom";
 import Button from "../../components/Button/Button";
 import Picture from "../../components/Picture/Picture";
 import voegbewonertoe from "../../assets/voegbewonertoe.png";
-import uploadprofielfoto from "../../assets/uploadprofielfoto.png";
+import profiel from "../../assets/profiel.png";
+import uploadimage from "../../assets/imageicoon.png";
 import activiteitenfiguur from "../../assets/activiteitenfiguur.png";
 import inschrijvingenlogo from "../../assets/inschrijvingenlogo.png";
 import mobiliteitlogo from "../../assets/mobiliteit-rolator.png";
@@ -22,6 +23,37 @@ function AdminPage() {
                     >
 
                         <div className="choice-item">
+                            <Link to={`/bewoners/`}>
+                                <Picture className="item-picture"
+                                    // img={bewonerslogo}
+                                         img={profiel}
+                                         imgTitle="logo"
+                                />
+                                <Button
+                                    className="select-button"
+                                    type="submit"
+                                    children="Bewoners profielen"
+                                />
+                            </Link>
+                        </div>
+
+
+                        <div className="choice-item">
+                            <Link to={`/admin/activiteiten`}>
+                                <Picture className="item-picture"
+                                         img={activiteitenfiguur}
+                                         imgTitle="logo"
+                                />
+                                <Button
+                                    className="select-button"
+                                    type="submit"
+                                    children="Activiteiten overzicht"
+                                />
+                            </Link>
+                        </div>
+
+
+                        <div className="choice-item">
                             <Link to={`/personeel/nieuwe-bewoner`}>
                                 <Picture className="item-picture"
                                          img={voegbewonertoe}
@@ -30,7 +62,7 @@ function AdminPage() {
                                 <Button
                                     className="select-button"
                                     type="submit"
-                                    children="Nieuwe bewoner toevoegen"
+                                    children="Bewoner toevoegen"
                                 />
                             </Link>
                         </div>
@@ -38,7 +70,7 @@ function AdminPage() {
                         <div className="choice-item">
                             <Link to={`/personeel/uploaden-profielfoto`}>
                                 <Picture className="item-picture"
-                                         img={uploadprofielfoto}
+                                         img={uploadimage}
                                          imgTitle="logo"
                                 />
                                 <Button
@@ -48,6 +80,7 @@ function AdminPage() {
                                 />
                             </Link>
                         </div>
+
 
                         {/*<div className="choice-item">*/}
                         {/*    <Link to={`/mobiliteit/`}>*/}
@@ -62,6 +95,7 @@ function AdminPage() {
                         {/*        />*/}
                         {/*    </Link>*/}
                         {/*</div>*/}
+
 
                         <div className="choice-item">
                             <Link to={`/personeel/toevoegen-activiteit`}>
@@ -86,21 +120,7 @@ function AdminPage() {
                                 <Button
                                     className="select-button"
                                     type="submit"
-                                    children="Ophalen Inschrijvingen"
-                                />
-                            </Link>
-                        </div>
-
-                        <div className="choice-item">
-                            <Link to={`/bewoners/`}>
-                                <Picture className="item-picture"
-                                         img={bewonerslogo}
-                                         imgTitle="logo"
-                                />
-                                <Button
-                                    className="select-button"
-                                    type="submit"
-                                    children="Accounts"
+                                    children="Ophalen inschrijvingen"
                                 />
                             </Link>
                         </div>

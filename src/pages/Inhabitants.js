@@ -4,77 +4,117 @@ import './Inhabitants.css';
 import {Link} from "react-router-dom";
 import Picture from "../components/Picture/Picture";
 import voegbewonertoe from "../assets/voegbewonertoe.png";
-import uploadprofielfoto from "../assets/uploadprofielfoto.png";
+import uploadprofielfoto from "../assets/profiel.png";
 import Button from "../components/Button/Button";
 
 function Inhabitants() {
+
+  const token = localStorage.getItem('token');
   const [inhabitants, setInhabitants] = useState([]);
+  const [selectDelete, setDelete] = useState(false);
+
 
   useEffect(() => {
+    const controller = new AbortController();
     async function fetchInhabitants() {
+
       try {
-        const response = await axios.get('http://localhost:8080/accounts');
+        const response = await axios.get('http://localhost:8080/accounts', {
         // const response = await axios.get('http://localhost:8080/accounts/after/birthdate?date=1973-08-08');
         // const response = await axios.get('http://localhost:8080/accounts/{gebruiker1}');
         // Plaats alle personen in de state zodat we het op de pagina kunnen gebruiken
+        headers: {
+          "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+        },
+        signal: controller.signal,
+      });
         setInhabitants(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       } catch(e) {
           console.error(e);
       }
     }
 
-    fetchInhabitants();
-  }, []);
+    void fetchInhabitants();
+    return function cleanup() {
+      controller.abort();
+    }
+  }, [selectDelete]);
+
+
+  function deleteSelected(inhabitantId) {
+    setDelete(!selectDelete);
+    deleteInhabitant(inhabitantId)
+  }
+
+
+  async function deleteInhabitant(id) {
+    try {
+      // const response = await axios.delete(`http://digizorgerbackend.azurewebsites.net/accounts/${id}`, {
+      const response = await axios.delete(`http://localhost:8080/accounts/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        }
+      })
+
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
 
   return (
-    <div className="page-container">
-      <h1 className="form-title">Accounts</h1>
+      <>
+        <main>
+          <div className="page-container">
+            <h1 className="form-title">Profielen</h1>
 
-      <table>
-        <thead>
-        <tr>
-          {/*<th>Id</th>*/}
-          {/*<th>Kamernummer</th>*/}
-          <th>Foto</th>
-          <th>Aanhef</th>
-          <th>Naam</th>
-          <th>Hulpmiddel</th>
-          {/*<th>Emailadres</th>*/}
-        </tr>
-        </thead>
-        <tbody>
-        {inhabitants.map((inhabitant) => {
-          // De key moet op het buitenste element staan en uniek zijn
-          return <tr key={inhabitant.id}>
-            {/*<td>{inhabitant.id}</td>*/}
-            {/*<td>{inhabitant.roomnumber}</td>*/}
+            <table>
+              <thead>
+              <tr>
+                {/*<th>Id</th>*/}
+                {/*<th>Kamernummer</th>*/}
+                <th>Foto</th>
+                <th>Aanhef</th>
+                <th>Naam</th>
+                <th>Hulpmiddel</th>
+                {/*<th>Emailadres</th>*/}
+              </tr>
+              </thead>
+              <tbody>
 
-            {/*Even checken of er uberhaupt een file is, en zo ja, dan laten we hem zien!*/}
-            {/*<td>{inhabitant.file && <img src={inhabitant.file.url} alt={inhabitant.lastname}/>}</td>*/}
+              {inhabitants.map((inhabitant) => {
+                // De key moet op het buitenste element staan en uniek zijn
+                return <tr key={inhabitant.id}>
+                  {/*<td>{inhabitant.id}</td>*/}
+                  {/*<td>{inhabitant.roomnumber}</td>*/}
 
-            <td>{<img src={inhabitant.img} alt={inhabitant.lastname}/>}</td>
-            <td>{inhabitant.salutation}</td>
-            <td>{inhabitant.lastname}</td>
-            <td>{inhabitant.helpingtool}</td>
+                  {/*Even checken of er uberhaupt een file is, en zo ja, dan laten we hem zien!*/}
+                  {/*<td>{inhabitant.file && <img src={inhabitant.file.url} alt={inhabitant.lastname}/>}</td>*/}
+
+                  <td>{<img src={inhabitant.img} alt={inhabitant.lastname}/>}</td>
+                  <td>{inhabitant.salutation}</td>
+                  <td>{inhabitant.lastname}</td>
+                  <td>{inhabitant.helpingtool}</td>
 
 
-            <Link to={`/activiteiten/`}>
-              <Button
-                  className="select-button"
-                  type="button"
-                  children="Mijn activiteiten"
+                  {/*<Button*/}
+                  {/*    className="select-button"*/}
+                  {/*    type="submit"*/}
+                  {/*    onClick={() => deleteSelected(inhabitant.id)}*/}
+                  {/*    children="verwijder"*/}
+                  {/*/>*/}
 
-              />
-            </Link>
-
-          </tr>
-        })}
-
-        </tbody>
-      </table>
-
-    </div>
+                </tr>
+              })}
+              </tbody>
+            </table>
+            <br/>
+          </div>
+        </main>
+      </>
   );
 }
 

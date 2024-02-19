@@ -5,7 +5,7 @@ import activity from "../../components/Activity/Activity";
 import {Link} from "react-router-dom";
 
 
-function ReservationsCards() {
+function ReservationsWaiting() {
 
     const token = localStorage.getItem('token');
     const [orders, setOrders] = useState([]);
@@ -17,10 +17,7 @@ function ReservationsCards() {
         async function fetchOrders() {
 
             try {
-                // const response = await axios.get('http://digizorgerbackend.azurewebsites.net/reservations/selecteditem/?selecteditem=KAARTEN', {
-                const response = await axios.get('http://localhost:8080/reservations/selecteditem/?selecteditem=KAARTEN', {
-                // const response = await axios.get('http://localhost:8080/reservations/selecteditem/status?selecteditem=KAARTEN&status=wachtend', {
-
+                    const response = await axios.get('http://localhost:8080/reservations/status/?status=wachtend', {
 
                     headers: {
                         "Content-Type": "application/json",
@@ -49,7 +46,6 @@ function ReservationsCards() {
 
     async function deleteOrder(id) {
         try {
-            // const response = await axios.delete(`http://digizorgerbackend.azurewebsites.net/reservations/${id}`, {
             const response = await axios.delete(`http://localhost:8080/reservations/${id}`, {
                 headers: {
                     "Content-Type": "application/json",
@@ -67,7 +63,7 @@ function ReservationsCards() {
         <>
             <main>
                 <div className="inner-container">
-                    <h1 className="page-title">Inschrijvingen Kaarten</h1>
+                    <h1 className="page-title">Inschrijvingen Wachtend</h1>
                     <br/>
                     <Button
                         className="print-list-button"
@@ -80,7 +76,7 @@ function ReservationsCards() {
                         <thead>
                         <tr>
                             {/*<th>Id</th>*/}
-                            {/*<th>Activiteit</th>*/}
+                            <th>Activiteit</th>
                             {/*<th>Aanhef</th>*/}
                             <th>Registrant</th>
                             {/*<th>AccountId</th>*/}
@@ -94,7 +90,7 @@ function ReservationsCards() {
                         {orders.map((order) => {
                             return <tr key={order.id}>
                                 {/*<td>{order.id}</td>*/}
-                                {/*<td>{order.selecteditem}</td>*/}
+                                <td>{order.selecteditem}</td>
                                 <td>{order.registrant}</td>
                                 <td>{order.status}</td>
 
@@ -131,4 +127,4 @@ function ReservationsCards() {
     );
 }
 
-export default ReservationsCards;
+export default ReservationsWaiting;

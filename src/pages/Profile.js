@@ -33,6 +33,7 @@ function Profile() {
                 <p>{user.city}</p>
                 <p>{user.phone}</p>
                 <p>{user.helpingtool}</p>
+
             </div>
         </main>
         </>

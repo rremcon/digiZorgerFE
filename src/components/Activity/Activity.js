@@ -16,10 +16,9 @@ function Activity({className, id, name, img, day, date, time, location, price, a
                 <br/>
                 <h3>Locatie: {location}</h3>
                 <br/>
-                <span>€{price}</span>
+                {/*<span>€{price}</span>*/}
                 <br/>
-                <br/>
-                <h3>Totaal beschikbaar: {availableplaces} plekken</h3>
+                <h3>Nog beschikbaar: {availableplaces} plekken</h3>
 
             </div>
         </>

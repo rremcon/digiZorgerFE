@@ -1,11 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from "axios";
+import {useParams} from "react-router-dom";
 import Button from "../components/Button/Button";
-import './Activities.css';
 import Activity from "../components/Activity/Activity";
+import Result from "../components/Result/Result";
+import {ClickContext} from "../context/ClickContext";
+import {AuthContext} from "../context/AuthContext";
+import './Activities.css';
+import "../components/Activity/Activity.css";
+
 
 function Activities() {
+
+    const {user} = useContext(AuthContext);
+    const {minOneFunction, plusOneFunction, clicks} = useContext (ClickContext)
 
     const [activities, setActivities] = useState([]);
     const [confirm, setConfirm] = useState(false);
@@ -104,6 +113,7 @@ function Activities() {
                                         <img className="box-image" src={activity.img} alt={activity.title}/>
                                         {/*</div>*/}
                                         <div className="grid-box-content">
+                                            {/*<h2>{activity.category}</h2>*/}
                                             <h2>{activity.day}</h2>
                                             <h2>{activity.date}</h2>
                                             <h2>{activity.time}</h2>
@@ -131,11 +141,10 @@ function Activities() {
                                             <br/>
 
                                             <Button
-                                                className="reservate-button"
+                                                className="select-button"
                                                 type="submit"
-                                                // onClick={reservateActivity}
-                                            >Selecteer
-                                                {confirm === true && <p>U bent ingeschreven</p>}
+                                                onClick={plusOneFunction}
+                                            >Aanmelden
                                             </Button>
 
                                         </div>

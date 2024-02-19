@@ -15,6 +15,15 @@ button {
 }
 
 
+.sign-up-button:disabled,
+.select-button:disabled,
+.quantity-button:disabled,
+.reservate-button:disabled,
+.confirm-mailing-button:disabled {
+    background-color: #727575;
+}
+
+
 .day-button,
 .account-button,
 .startpagina-button,
