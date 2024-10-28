@@ -2,6 +2,7 @@ import {createContext, useState} from "react";
 
 export const ClickContext = createContext({})
 
+
 function ClickContextProvider({children}) {
 
     const [amountOfClicks, setCounter] = useState(0);

@@ -4,15 +4,15 @@ button {
     background-color: var(--grey);
     border-radius: 5px;
     /*border-color: orangered;*/
-    border-color: var(--red);
+    border-color: var(--blue);
 }
 
-.activity-type-button {
-    border-radius: 5px;
-    font-size: 20px;
-    color: #008b8b;
-    background-color: var(--white);
-}
+/*.activity-type-button {*/
+/*    border-radius: 50px;*/
+/*    font-size: 20px;*/
+/*    color: #48c8bd;*/
+/*    background-color: var(--white);*/
+/*}*/
 
 
 .sign-up-button:disabled,
@@ -24,6 +24,7 @@ button {
 }
 
 
+.activity-type-button,
 .day-button,
 .account-button,
 .startpagina-button,
@@ -38,7 +39,8 @@ button {
 .quantity-button,
 .toggleButton {
     font-size: 20px;
-    background-color: #008b8b;
+    background-color: #48c8bd;
+    margin: 5px;
 }
 
 .print-list-button
@@ -49,7 +51,7 @@ button {
 
 .confirm-booking-button {
     color: var(--white);
-    background-color: var(--red);
+    background-color: var(--blue);
 }
 
 

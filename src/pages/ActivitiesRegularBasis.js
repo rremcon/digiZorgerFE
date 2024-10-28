@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Button from "../components/Button/Button";
 import './Activities.css';
@@ -9,13 +9,15 @@ import {ClickContext} from "../context/ClickContext";
 import {AuthContext} from "../context/AuthContext";
 import './Activities.css';
 import "../components/Activity/Activity.css";
+import logo from "../assets/newlogo-digizorger.png";
+import LogoSmall from "../components/Picture/LogoSmall";
 
 
 function Activities() {
 
     const {user} = useContext(AuthContext);
     const {minOneFunction, plusOneFunction, clicks} = useContext (ClickContext)
-
+    const navigate = useNavigate();
     const [activities, setActivities] = useState([]);
     const [confirm, setConfirm] = useState(false);
 
@@ -38,124 +40,113 @@ function Activities() {
 
     return (
         <>
-            <main>
+            <main className="outer-content-container">
+                <div className="inner-content-container">
 
-                {/*{loading && <p>Loading...</p>}*/}
-                {/*{error && <p>Error: Could not fetch data!</p>}*/}
+                    {/*{loading && <p>Loading...</p>}*/}
+                    {/*{error && <p>Error: Could not fetch data!</p>}*/}
 
-                <h1 className="page-title">Standaard Activiteiten</h1>
-                <br/>
-                <br/>
-                <div className="days-row-container">
-
-                <Link to={`/activiteiten/standaardbasis/maandag`}>
-                    <Button
-                        className="day-button"
-                        type="button"
-                        children="Maandag"
+                    <LogoSmall
+                        img={logo}
+                        imgTitle="logo"
+                        onClick={() => navigate('/')}
                     />
-                </Link>
-                <br/>
-                <br/>
-                <Link to={`/activiteiten/standaardbasis/dinsdag`}>
-                    <Button
-                        className="day-button"
-                        type="button"
-                        children="Dinsdag"
-                    />
-                </Link>
-                <br/>
-                <br/>
-                <Link to={`/activiteiten/standaardbasis/woensdag`}>
-                    <Button
-                        className="day-button"
-                        type="button"
-                        children="Woensdag"
-                    />
-                </Link>
-                <br/>
-                <br/>
-                <Link to={`/activiteiten/standaardbasis/donderdag`}>
-                    <Button
-                        className="day-button"
-                        type="button"
-                        children="Donderdag"
-                    />
-                </Link>
-                <br/>
-                <br/>
-                <Link to={`/activiteiten/standaardbasis/vrijdag`}>
-                    <Button
-                        className="day-button"
-                        type="button"
-                        children="Vrijdag"
-                    />
-                </Link>
 
-                </div>
+                    <h1 className="page-title">Standaard Activiteiten</h1>
 
+                    <div className="days-row-container">
 
-                <br/>
-                <br/>
-                <div className="grid-container">
-                    {
-                        activities.map((activity) => {
-                            return (
+                        <Link to={`/activiteiten/standaardbasis/maandag`}>
+                            <Button
+                                className="day-button"
+                                type="button"
+                                children="Maandag"
+                            />
+                        </Link>
+                        <br/>
+                        <br/>
+                        <Link to={`/activiteiten/standaardbasis/dinsdag`}>
+                            <Button
+                                className="day-button"
+                                type="button"
+                                children="Dinsdag"
+                            />
+                        </Link>
+                        <br/>
+                        <br/>
+                        <Link to={`/activiteiten/standaardbasis/woensdag`}>
+                            <Button
+                                className="day-button"
+                                type="button"
+                                children="Woensdag"
+                            />
+                        </Link>
+                        <br/>
+                        <br/>
+                        <Link to={`/activiteiten/standaardbasis/donderdag`}>
+                            <Button
+                                className="day-button"
+                                type="button"
+                                children="Donderdag"
+                            />
+                        </Link>
+                        <br/>
+                        <br/>
+                        <Link to={`/activiteiten/standaardbasis/vrijdag`}>
+                            <Button
+                                className="day-button"
+                                type="button"
+                                children="Vrijdag"
+                            />
+                        </Link>
 
-                                <article className="grid-box"
-                                         key={activity.id}>
-                                    <Link to={`/activiteit/${activity.id}`}>
-                                        {/*<div className="grid-box-head">*/}
-                                        <h1 className="box-title">{activity.name.slice(0, 25)}</h1>
-                                        <br/>
-                                        <img className="box-image" src={activity.img} alt={activity.title}/>
-                                        {/*</div>*/}
-                                        <div className="grid-box-content">
-                                            <h2>{activity.day}</h2>
-                                            <h2>{activity.date}</h2>
-                                            <h2>{activity.time}</h2>
-                                            <br/>
-                                            <h2>Locatie: {activity.location}</h2>
-                                            <br/>
-                                            <h2>Totaal beschikbaar: {activity.availableplaces} plekken</h2>
-                                            <br/>
-                                            <span className="box-price">€{activity.price}</span>
+                    </div>
 
-                                            {/*<Activity*/}
-                                            {/*    className="activity-item"*/}
-                                            {/*    // id={activity.id}*/}
-                                            {/*    name={activity.name}*/}
-                                            {/*    img={activity.img}*/}
-                                            {/*    day={activity.day}*/}
-                                            {/*    date={activity.date}*/}
-                                            {/*    time={activity.time}*/}
-                                            {/*    location={activity.location}*/}
-                                            {/*    price={activity.price}*/}
-                                            {/*    availableplaces={activity.availableplaces}*/}
-                                            {/*/>*/}
+                    <br/>
+                    <br/>
 
-                                            <br/>
-                                            <br/>
+                        {
+                            activities.map((activity) => {
+                                return (
 
-                                            <Button
-                                                className="select-button"
-                                                type="submit"
-                                                onClick={plusOneFunction}
-                                            >Aanmelden
-                                            </Button>
+                                    <div className="grid-service-container"
+                                         key={activity.id} >
 
-                                        </div>
-                                    </Link>
+                                    <Link to = {`/activiteit/${activity.id}`}>
 
-                                </article>
-                            )
-                        })
-                    }
+                            <
+                                Activity
+                                className="grid-service-tile"
+                                id = {activity.id}
+                                name = {activity.name}
+                                img = {activity.img}
+                                day = {activity.day}
+                                date = {activity.date}
+                                time = {activity.time}
+                                location = {activity.location}
+                                price = {activity.price}
+                                availableplaces = {activity.availableplaces}
+                                />
 
-                </div>
+                                <Button
+                                    className="select-button"
+                                    type="submit"
+                                    onClick={plusOneFunction}
+                                >
+                                    Aanmelden
+                                </Button>
+
+                            </Link>
+
+                            </div>
+                                )
+                            })
+                        }
+
+                    </div>
             </main>
         </>
-    );
+);
 }
 
 export default Activities;

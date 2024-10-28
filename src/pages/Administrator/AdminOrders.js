@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import Button from "../../components/Button/Button";
-import activity from "../../components/Activity/Activity";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import logo from "../../assets/newlogo-digizorger.png";
+import LogoSmall from "../../components/Picture/LogoSmall";
 
 
 function AdminOrders() {
 
+    const navigate = useNavigate();
     const token = localStorage.getItem('token');
     const [orders, setOrders] = useState([]);
     const [selectDelete, setDelete] = useState(false);
@@ -62,8 +64,15 @@ function AdminOrders() {
 
     return (
         <>
-            <main>
-                <div className="inner-container">
+            <main className="outer-content-container">
+                <div className="inner-content-container">
+
+                    <LogoSmall
+                        img={logo}
+                        imgTitle="logo"
+                        onClick={() => navigate('/')}
+                    />
+
                     <h1 className="page-title">Inschrijvingen</h1>
 
                     <div className="activity-grid-container">
@@ -75,8 +84,7 @@ function AdminOrders() {
                                 children="Biljarten"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/bingo`}>
                             <Button
                                 className="activity-type-button"
@@ -84,8 +92,7 @@ function AdminOrders() {
                                 children="Bingo"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/dansen`}>
                             <Button
                                 className="activity-type-button"
@@ -93,8 +100,7 @@ function AdminOrders() {
                                 children="Dansen"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/fietsen`}>
                             <Button
                                 className="activity-type-button"
@@ -102,8 +108,7 @@ function AdminOrders() {
                                 children="Fietsen"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/golfen`}>
                             <Button
                                 className="activity-type-button"
@@ -111,8 +116,7 @@ function AdminOrders() {
                                 children="Golfen"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/haken`}>
                             <Button
                                 className="activity-type-button"
@@ -120,8 +124,7 @@ function AdminOrders() {
                                 children="Haken"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/jeudeboule`}>
                             <Button
                                 className="activity-type-button"
@@ -129,8 +132,7 @@ function AdminOrders() {
                                 children="Jeu De Boule"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/kaarten`}>
                             <Button
                                 className="activity-type-button"
@@ -138,8 +140,7 @@ function AdminOrders() {
                                 children="Kaarten"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/sjoelen`}>
                             <Button
                                 className="activity-type-button"
@@ -147,8 +148,7 @@ function AdminOrders() {
                                 children="Sjoelen"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/digitraining`}>
                             <Button
                                 className="activity-type-button"
@@ -156,8 +156,7 @@ function AdminOrders() {
                                 children="Training Digitalis"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/wandelen`}>
                             <Button
                                 className="activity-type-button"
@@ -165,8 +164,7 @@ function AdminOrders() {
                                 children="Wandelen"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/weekendweg`}>
                             <Button
                                 className="activity-type-button"
@@ -174,8 +172,7 @@ function AdminOrders() {
                                 children="Weekend Weg"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/welkom`}>
                             <Button
                                 className="activity-type-button"
@@ -183,8 +180,7 @@ function AdminOrders() {
                                 children="Welkom Nieuwe Bewoners"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/workshop`}>
                             <Button
                                 className="activity-type-button"
@@ -192,8 +188,7 @@ function AdminOrders() {
                                 children="Workshop"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/yoga`}>
                             <Button
                                 className="activity-type-button"
@@ -201,8 +196,7 @@ function AdminOrders() {
                                 children="Yoga"
                             />
                         </Link>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
+
                         <Link to={`/reserveringen/zwemmen`}>
                             <Button
                                 className="activity-type-button"
@@ -210,21 +204,20 @@ function AdminOrders() {
                                 children="Zwemmen"
                             />
                         </Link>
-                        {/*/!*<br/>*!/*/}
-                        {/*/!*<br/>*!/*/}
-                        {/*<Link to={`/reserveringen/wachtend`}>*/}
-                        {/*    <Button*/}
-                        {/*        className="activity-type-button"*/}
-                        {/*        type="button"*/}
-                        {/*        children="Wachtend"*/}
-                        {/*    />*/}
-                        {/*</Link>*/}
+
+                        <Link to={`/reserveringen/wachtend`}>
+                            <Button
+                                className="activity-type-button"
+                                type="button"
+                                children="Wachtend"
+                            />
+                        </Link>
 
                     </div>
 
 
                     <br/>
-                    <table className="table">
+                    <table>
                         <thead>
                         <tr>
                             {/*<th>Id</th>*/}
@@ -247,26 +240,11 @@ function AdminOrders() {
                                 <td>{order.registrant}</td>
                                 <td>{order.status}</td>
 
-                                {/*<td>{order.account}</td>*/}
-                                {/*<td>{order.activity}</td>*/}
-                                {/*<td>{order.account_id}</td>*/}
-                                {/*<td>{order.account}</td>*/}
-                                {/*<td>{order.quantity}</td>*/}
-                                {/*<td>{order.price}</td>*/}
-                                {/*<td>{order.price * order.quantity}</td>*/}
-
-                                {/*<Button*/}
-                                {/*    className="select-button"*/}
-                                {/*    type="submit"*/}
-                                {/*    // onClick={(e) => changeSelected(e, order.id)}*/}
-                                {/*    children="wijzig"*/}
-                                {/*/>*/}
-
                                 <Button
                                     className="select-button"
                                     type="submit"
                                     // onClick={(e) => changeSelected(e, order.id)}
-                                    children="wijzig"
+                                    children="wijzigen"
                                 />
 
                                 <Button

@@ -1,7 +1,5 @@
 import React, {useContext} from "react";
 import {ClickContext} from "../../context/ClickContext";
-import Activity from "../Activity/Activity";
-import activity from "../Activity/Activity";
 
 function Addbutton() {
 

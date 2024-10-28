@@ -5,10 +5,11 @@ function Activity({className, id, name, img, day, date, time, location, price, a
 
     return (
         <>
-            <div className={className}>
-                {/*<h1>Activiteit {id}</h1>*/}
-                <h2>{name}</h2>
-                <img src={img} alt={name}/>
+            <article className={className}>
+                {/*<h1>ID {id}</h1>*/}
+                <h2 className="box-title">{name}</h2>
+                <br/>
+                <img className="box-image" src={img} alt={name}/>
                 <br/>
                 <h3>{day}</h3>
                 <h3>{date}</h3>
@@ -16,13 +17,13 @@ function Activity({className, id, name, img, day, date, time, location, price, a
                 <br/>
                 <h3>Locatie: {location}</h3>
                 <br/>
-                {/*<span>€{price}</span>*/}
+                <span className="box-price">€{price}</span>
                 <br/>
                 <h3>Nog beschikbaar: {availableplaces} plekken</h3>
 
-            </div>
+            </article>
         </>
-    );
+);
 }
 
 export default Activity;

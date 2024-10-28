@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from "../components/Button/Button";
+import {useNavigate} from "react-router-dom";
+import logo from "../assets/newlogo-digizorger.png";
+import LogoSmall from "../components/Picture/LogoSmall";
 
 function ImageUpload() {
   const [file, setFile] = useState([]);
   const [previewUrl, setPreviewUrl] = useState('');
   const [confirm, setConfirm] = useState(false);
+  const navigate = useNavigate();
 
-  // constant for the new inhabitant_id that is being posted to generate the id to which the photo must be assigned to
+  // constant for the new inhabitant_id that is being posted,
+  // to generate the id to which the photo must be assigned to.
   const [inhabitant_id, setInhabitant_id] = useState(0);
 
 
@@ -30,8 +35,9 @@ function ImageUpload() {
     formData.append("file", file);
 
     try {
-      // verstuur formData object en geef in de header aan dat het om een form-data type gaat
-      // Let op: we wijzigen nu ALTIJD de afbeelding voor account 1, als je een ander account wil kiezen of dit dynamisch wil maken, pas je de url aan!
+      // verstuur formData object en geef in de header aan dat het om een form-data type gaat.
+      // Let op: we wijzigen nu ALTIJD de afbeelding voor account 1,
+      // als je een ander account wil kiezen of dit dynamisch wil maken, pas je de url aan!
       // const result = await axios.post('http://localhost:8080/activities/1/photo', formData,
       // const result = await axios.post('http://localhost:8080/accounts/1/photo', formData,
       // const result = await axios.post(`http://localhost:8080/accounts/${account_id}/photo`, formData,
@@ -51,31 +57,46 @@ function ImageUpload() {
   }
 
   return (
-    <div className="page-container">
-      <h1 className="form-title">Afbeelding uploaden</h1>
-      <form onSubmit={sendImage}>
-        <label htmlFor="inhabitant-image">
-          Kies afbeelding:
-          <input type="file" name="image-field" id="inhabitant-image" onChange={handleImageChange}/>
-        </label>
-        {/*Als er een preview url is, dan willen we deze in een afbeelding tonen*/}
-        {previewUrl &&
-          <label>
-            Preview:
-            <img src={previewUrl} alt="Voorbeeld van de afbeelding die zojuist gekozen is" className="image-preview"/>
-          </label>
-        }
+      <>
+        <main className="outer-content-container">
+          <div className="inner-content-container">
 
-        <Button
-            type="submit"
-        >Uploaden
-          {confirm === true && <p>Afbeelding toegevoegd!</p>}
-        </Button>
+            <LogoSmall
+                img={logo}
+                imgTitle="logo"
+                onClick={() => navigate('/')}
+            />
 
-      </form>
+          <div className="form-container">
+            <form className="form" onSubmit={sendImage}>
+              <h1 className="form-title">Afbeelding uploaden</h1>
 
-    </div>
-  );
-}
+              <label htmlFor="inhabitant-image">
+                Kies afbeelding:
+                <input type="file" name="image-field" id="inhabitant-image" onChange={handleImageChange}/>
+              </label>
+              {/*Als er een preview url is, dan willen we deze in een afbeelding tonen*/}
+              {previewUrl &&
+                  <label>
+                    Preview:
+                    <img src={previewUrl} alt="Voorbeeld van de afbeelding die zojuist gekozen is"
+                         className="image-preview"/>
+                  </label>
+              }
 
-export default ImageUpload;
+              <Button
+                  type="submit"
+              >Uploaden
+                {confirm === true && <p>Afbeelding toegevoegd!</p>}
+              </Button>
+
+            </form>
+
+            </div>
+          </div>
+        </main>
+      </>
+            );
+            }
+
+            export default ImageUpload;

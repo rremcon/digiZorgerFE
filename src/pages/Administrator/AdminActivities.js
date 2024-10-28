@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import Button from "../../components/Button/Button";
-import '../Activities.css';
-
+import {useNavigate} from "react-router-dom";
+import logo from "../../assets/newlogo-digizorger.png";
+import LogoSmall from "../../components/Picture/LogoSmall";
+// import '../Activities.css';
 
 function AdminActivities() {
 
+    const navigate = useNavigate();
     const token = localStorage.getItem('token');
     const [activities, setActivities] = useState([]);
     const [selectDelete, setDelete] = useState(false);
@@ -60,11 +63,18 @@ function AdminActivities() {
 
     return (
         <>
-            <main>
-                <div className="inner-container">
-                    <h1 className="page-title">Activiteiten</h1>
-                    <br/>
-                    <table className="table">
+            <main className="outer-content-container">
+                <div className="inner-content-container">
+
+                    <LogoSmall
+                        img={logo}
+                        imgTitle="logo"
+                        onClick={() => navigate('/')}
+                    />
+
+                    <h1 className="form-title">Activiteiten</h1>
+
+                    <table>
                         <thead>
                         <tr>
                             <th>Id</th>
@@ -80,6 +90,7 @@ function AdminActivities() {
                         <tbody>
 
                         {activities.map((activity) => {
+
                             return <tr key={activity.id}>
                                 <td>{activity.id}</td>
                                 <td>{activity.category}</td>
@@ -91,18 +102,19 @@ function AdminActivities() {
                                 <td>€{activity.price}</td>
 
                                 {/*<Button*/}
-                                {/*    className="select-button"*/}
+                                {/*    className="table-button"*/}
                                 {/*    type="submit"*/}
                                 {/*    // onClick={(e) => changeSelected(e, activity.id)}*/}
-                                {/*    children="wijzig"*/}
+                                {/*    children="wijzigen"*/}
                                 {/*/>*/}
 
-                                <Button
-                                    className="select-button"
-                                    type="submit"
-                                    onClick={() => deleteSelected(activity.id)}
-                                    children="verwijder"
-                                />
+                                {/*<Button*/}
+                                {/*    // className="select-button"*/}
+                                {/*    className="table-button"*/}
+                                {/*    type="submit"*/}
+                                {/*    onClick={() => deleteSelected(activity.id)}*/}
+                                {/*    children="verwijder"*/}
+                                {/*/>*/}
 
                             </tr>
                         })}

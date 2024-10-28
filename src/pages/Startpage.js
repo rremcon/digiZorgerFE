@@ -1,105 +1,48 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import Button from "../components/Button/Button";
-import Picture from "../components/Picture/Picture";
-import mobiliteitlogo from "../assets/mobiliteit-rolator.png";
+import {Link, useNavigate} from "react-router-dom";
 import activiteitenfiguur from "../assets/activiteitenfiguur.png";
-import profiel from "../assets/profiel.png";
+import logo from "../assets/newlogo-digizorger.png";
+import LogoSmall from "../components/Picture/LogoSmall";
+import Service from "../components/Service/Service";
 
 
 function Startpage() {
 
+    const navigate = useNavigate();
+
+
     return (
         <>
-            <main className="container">
-                <h1 className="page-title">Startpagina</h1>
+            <main className="outer-content-container">
+                <div className="inner-content-container">
 
+                    <LogoSmall
+                        img={logo}
+                        imgTitle="logo"
+                        onClick={() => navigate('/')}
+                    />
 
-                <ul className="choice-items-overview">
-                    <li className="choice-items"
-                    >
+                    <h1 className="page-title">Startpagina</h1>
 
-                        {/*<div className="choice-item">*/}
-                        {/*    <Link to={`/activiteiten`}>*/}
-                        {/*        <Picture className="item-picture"*/}
-                        {/*                 img={activiteitenfiguur}*/}
-                        {/*                 imgTitle="logo"*/}
-                        {/*        />*/}
-                        {/*        <Button*/}
-                        {/*            className="select-button"*/}
-                        {/*            type="submit"*/}
-                        {/*            children="Alle Activiteiten"*/}
-                        {/*        />*/}
-                        {/*    </Link>*/}
-                        {/*</div>*/}
+                    <div className="grid-service-container">
 
+                        <Service
+                            link={`/activiteiten/standaardbasis`}
+                            img={activiteitenfiguur}
+                            children="Standaard Activiteiten"
+                        />
 
-                        {/*<div className="choice-item">*/}
-                        {/*    <Link to={`/mobiliteit/`}>*/}
-                        {/*        <Picture className="item-picture"*/}
-                        {/*                 img={mobiliteitlogo}*/}
-                        {/*                 imgTitle="logo"*/}
-                        {/*        />*/}
-                        {/*        <Button*/}
-                        {/*            className="select-button"*/}
-                        {/*            type="submit"*/}
-                        {/*            children="Mobiliteit"*/}
-                        {/*        />*/}
-                        {/*    </Link>*/}
-                        {/*</div>*/}
+                        <Service
+                            link={`/activiteiten/projectbasis`}
+                            img={activiteitenfiguur}
+                            children="Projectmatige Activiteiten"
+                        />
 
-
-                        {/*<div className="choice-item">*/}
-                        {/*    <Link to={`/bewoners/`}>*/}
-                        {/*        <Picture className="item-picture"*/}
-                        {/*            // img={bewonerslogo}*/}
-                        {/*                 img={profiel}*/}
-                        {/*                 imgTitle="logo"*/}
-                        {/*        />*/}
-                        {/*        <Button*/}
-                        {/*            className="select-button"*/}
-                        {/*            type="submit"*/}
-                        {/*            children="Huisgenoten"*/}
-                        {/*        />*/}
-                        {/*    </Link>*/}
-                        {/*</div>*/}
-
-
-                        <div className="choice-item">
-                            <Link to={`/activiteiten/standaardbasis`}>
-                                <Picture className="item-picture"
-                                         img={activiteitenfiguur}
-                                         imgTitle="logo"
-                                />
-                                <Button
-                                    className="select-button"
-                                    type="submit"
-                                    children="Standaard Activiteiten"
-                                />
-                            </Link>
                         </div>
-
-                        <div className="choice-item">
-                            <Link to={`/activiteiten/projectbasis`}>
-                                <Picture className="item-picture"
-                                         img={activiteitenfiguur}
-                                         imgTitle="logo"
-                                />
-                                <Button
-                                    className="select-button"
-                                    type="submit"
-                                    children="Projectmatige Activiteiten"
-                                />
-                            </Link>
-                        </div>
-
-
-                    </li>
-                </ul>
-
+                    </div>
             </main>
         </>
-    );
+);
 }
 
 export default Startpage;

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Inhabitants.css';
-import {Link} from "react-router-dom";
-import Picture from "../components/Picture/Picture";
+import {Link, useNavigate} from "react-router-dom";
+import LogoBig from "../components/Picture/LogoBig";
 import voegbewonertoe from "../assets/voegbewonertoe.png";
 import uploadprofielfoto from "../assets/profiel.png";
 import Button from "../components/Button/Button";
+import logo from "../assets/newlogo-digizorger.png";
+import LogoSmall from "../components/Picture/LogoSmall";
 
 function Inhabitants() {
 
+  const navigate = useNavigate();
   const token = localStorage.getItem('token');
   const [inhabitants, setInhabitants] = useState([]);
   const [selectDelete, setDelete] = useState(false);
@@ -67,8 +69,15 @@ function Inhabitants() {
 
   return (
       <>
-        <main>
-          <div className="page-container">
+        <main className="outer-content-container">
+          <div className="inner-content-container">
+
+            <LogoSmall
+                img={logo}
+                imgTitle="logo"
+                onClick={() => navigate('/')}
+            />
+
             <h1 className="form-title">Profielen</h1>
 
             <table>
@@ -100,12 +109,12 @@ function Inhabitants() {
                   <td>{inhabitant.helpingtool}</td>
 
 
-                  {/*<Button*/}
-                  {/*    className="select-button"*/}
-                  {/*    type="submit"*/}
-                  {/*    onClick={() => deleteSelected(inhabitant.id)}*/}
-                  {/*    children="verwijder"*/}
-                  {/*/>*/}
+                  <Button
+                      className="select-button"
+                      type="submit"
+                      onClick={() => deleteSelected(inhabitant.id)}
+                      children="verwijder"
+                  />
 
                 </tr>
               })}

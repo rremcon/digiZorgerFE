@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import Button from "../../components/Button/Button";
-import activity from "../../components/Activity/Activity";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import logo from "../../assets/newlogo-digizorger.png";
+import LogoSmall from "../../components/Picture/LogoSmall";
 
 
 function ReservationsYoga() {
@@ -10,6 +11,7 @@ function ReservationsYoga() {
     const token = localStorage.getItem('token');
     const [orders, setOrders] = useState([]);
     const [selectDelete, setDelete] = useState(false);
+    const navigate = useNavigate();
 
 
     useEffect(()=> {
@@ -61,8 +63,15 @@ function ReservationsYoga() {
 
     return (
         <>
-            <main>
-                <div className="inner-container">
+            <main className="outer-content-container">
+                <div className="inner-content-container">
+
+                    <LogoSmall
+                        img={logo}
+                        imgTitle="logo"
+                        onClick={() => navigate('/')}
+                    />
+
                     <h1 className="page-title">Inschrijvingen Yoga</h1>
                     <br/>
                     <Button
@@ -72,7 +81,7 @@ function ReservationsYoga() {
                         children="Lijst printen"
                     />
                     <br/>
-                    <table className="table">
+                    <table>
                         <thead>
                         <tr>
                             {/*<th>Id</th>*/}
@@ -93,7 +102,6 @@ function ReservationsYoga() {
                                 {/*<td>{order.selecteditem}</td>*/}
                                 <td>{order.registrant}</td>
                                 <td>{order.status}</td>
-
                                 {/*<td>{order.date}</td>*/}
                                 {/*<td>{order.account}</td>*/}
                                 {/*<td>{order.quantity}</td>*/}

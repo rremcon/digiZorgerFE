@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import './AddInhabitant.css';
 import axios from 'axios';
 import Button from "../components/Button/Button";
+import logo from "../assets/newlogo-digizorger.png";
+import LogoSmall from "../components/Picture/LogoSmall";
+import {useNavigate} from "react-router-dom";
 
 function AddInhabitant() {
 
@@ -9,6 +12,7 @@ function AddInhabitant() {
     const [inhabitantName, setInhabitantName] = useState('');
     const [inhabitantHelpingTool, setInhabitantHelpingTool] = useState('Niet van toepassing');
     const [confirm, setConfirm] = useState(false);
+    const navigate = useNavigate();
 
   async function addInhabitant(e) {
     // voorkom refresh
@@ -26,6 +30,7 @@ function AddInhabitant() {
 
         console.log(response.data);
         setConfirm(true);
+
     } catch(e) {
         console.error(e);
     }
@@ -33,69 +38,80 @@ function AddInhabitant() {
 
   return (
       <>
-        <main>
-            <div className="form-container">
-                <form onSubmit={addInhabitant}>
-                    <h1 className="form-title">Een nieuwe bewoner toevoegen</h1>
+        <main className="outer-content-container">
+            <div className="inner-content-container">
 
-                    <label htmlFor="inhabitant-salutation">
-                        Aanhef:
-                        <select
-                            type="text"
-                            id="inhabitant-salutation"
-                            name="inhabitant-salutation-field"
-                            value={inhabitantSalutation}
-                            onChange={(e) => setInhabitantSalutation(e.target.value)}
-                        >
-                            <option value="*">
-                                *
-                            </option>
-                            <option value="Dhr.">
-                                Dhr.
-                            </option>
-                            <option value="Mevr.">
-                                Mevr.
-                            </option>
-                        </select>
-                    </label>
+                <LogoSmall
+                    img={logo}
+                    imgTitle="logo"
+                    onClick={() => navigate('/')}
+                />
 
-                    <label htmlFor="inhabitant-name">
-                        Achternaam:
-          <input
-            type="text"
-            name="inhabitant-name-field"
-            id="inhabitant-name"
-            value={inhabitantName}
-            onChange={(e) => setInhabitantName(e.target.value)}
-          />
-        </label>
+                <div className="form-container">
 
-        <label htmlFor="inhabitant-helpingtool">
-          Hulpmiddel:
-          <select
-              type="text"
-            id="inhabitant-helpingtool"
-            name="inhabitant-helpingtool-field"
-            value={inhabitantHelpingTool}
-            onChange={(e) => setInhabitantHelpingTool(e.target.value)}
-          >
-            <option value="niet van toepassing">
-              Niet van toepassing
-            </option>
-            <option value="rolstoel">
-              Rolstoel
-            </option>
-            <option value="rolator">
-              Rolator
-            </option>
-            <option value="wandelstok">
-              Wandelstok
-            </option>
-            <option value="scootmobiel">
-              Scootmobiel
-            </option>
-          </select>
-        </label>
+                    <form className="form" onSubmit={addInhabitant}>
+                        <h1 className="form-title">Een nieuwe bewoner toevoegen</h1>
+
+                        <label htmlFor="inhabitant-salutation">
+                            Aanhef:
+                            <select
+                                type="text"
+                                id="inhabitant-salutation"
+                                name="inhabitant-salutation-field"
+                                value={inhabitantSalutation}
+                                onChange={(e) => setInhabitantSalutation(e.target.value)}
+                            >
+                                <option value="*">
+                                    *
+                                </option>
+                                <option value="Dhr.">
+                                    Dhr.
+                                </option>
+                                <option value="Mevr.">
+                                    Mevr.
+                                </option>
+                            </select>
+                        </label>
+
+                        <label htmlFor="inhabitant-name">
+                            Achternaam:
+                            <input
+                                type="text"
+                                name="inhabitant-name-field"
+                                id="inhabitant-name"
+                                value={inhabitantName}
+                                onChange={(e) => setInhabitantName(e.target.value)}
+                            />
+                        </label>
+
+                        <label htmlFor="inhabitant-helpingtool">
+                            Hulpmiddel:
+                            <select
+                                type="text"
+                                id="inhabitant-helpingtool"
+                                name="inhabitant-helpingtool-field"
+                                value={inhabitantHelpingTool}
+                                onChange={(e) => setInhabitantHelpingTool(e.target.value)}
+                            >
+                                <option value="niet van toepassing">
+                                    Niet van toepassing
+                                </option>
+                                <option value="rolstoel">
+                                    Rolstoel
+                                </option>
+                                <option value="rolator">
+                                    Rolator
+                                </option>
+                                <option value="wandelstok">
+                                    Wandelstok
+                                </option>
+                                <option value="scootmobiel">
+                                    Scootmobiel
+                                </option>
+                            </select>
+                        </label>
+
+                    </form>
 
                     <Button
                         type="submit"
@@ -104,12 +120,11 @@ function AddInhabitant() {
                         {confirm === true && <p>Bewoner toegevoegd!</p>}
                     </Button>
 
-      </form>
-
+                </div>
             </div>
         </main>
       </>
-  );
+);
 }
 
 export default AddInhabitant;

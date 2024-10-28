@@ -3,11 +3,12 @@ import {AuthContext} from "../context/AuthContext";
 import {useNavigate} from "react-router-dom";
 import Button from "../components/Button/Button";
 import axios from "axios";
+import LogoSmall from "../components/Picture/LogoSmall";
+import logo from "../assets/newlogo-digizorger.png";
 
 
 function Login() {
 
-    // const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState(null)
@@ -16,6 +17,7 @@ function Login() {
     const {login} = useContext(AuthContext);
 
     async function handleSubmit(e) {
+        // voorkom refresh
         e.preventDefault();
 
         setErrorMessage(null)
@@ -25,6 +27,7 @@ function Login() {
             return false;
         }
         try {
+            // Verstuur de data in een object en zorg dat de keys overeenkomen met die in de backend
             const response = await axios.post('http://localhost:8080/login',
             // const response = await axios.post('https://localhost:8443/login',
                 {
@@ -46,24 +49,22 @@ function Login() {
 
     return (
         <>
-            <main className="main-outer-container">
-                <div className="form-container">
+            <main className="outer-content-container">
+            <div className="inner-content-container">
 
-                    <form onSubmit={handleSubmit}>
+                <LogoSmall
+                    img={logo}
+                    imgTitle="logo"
+                    onClick={() => navigate('/')}
+                />
+
+                <div className="form-container">
+                    <form className="form" onSubmit={handleSubmit}>
                         <h1 className="form-title">Inloggen</h1>
                         <br/>
                         <h2>Hier kunt u inloggen om gebruik te maken van onze diensten.</h2>
+                        <p>*Alleen toegankelijk voor geautoriseerde gebruikers.</p>
 
-                        {/*<br/>*/}
-                        {/*<label htmlFor="email-field">Email</label>*/}
-                        {/*<br/>*/}
-                        {/*<input*/}
-                        {/*    type="text"*/}
-                        {/*    id="email-field"*/}
-                        {/*    value={email}*/}
-                        {/*    onChange={(e) => setEmail(e.target.value)}*/}
-                        {/*    name="email"*/}
-                        {/*    />*/}
                         <br/>
                         <label htmlFor="username-field">*Gebruikersnaam</label>
                         <input
@@ -80,21 +81,23 @@ function Login() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             name="password"
-                            />
+                        />
                         <br/>
                         <br/>
+
                         <div>{errorMessage}</div>
+
+                        <Button
+                            className="login-button"
+                            type="submit"
+                            onClick={handleSubmit}
+                            children="Inloggen"
+                        />
 
                     </form>
 
-                    <Button
-                        className="login-button"
-                        type="submit"
-                        onClick={handleSubmit}
-                        children="Inloggen"
-                    />
-
                 </div>
+            </div>
             </main>
         </>
     );
