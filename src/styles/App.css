@@ -1,0 +1,567 @@
+
+/*---------------------------------------------------CSS BORDER COLORS--------------------------------------------------------------*/
+
+
+/*body {*/
+/*    border: 4px solid #96ec15;*/
+/*}*/
+
+/*header,*/
+/*footer {*/
+/*    border: 4px solid #15ecec;*/
+/*}*/
+
+/*nav {*/
+/*    border: 4px solid darkorchid;*/
+/*}*/
+
+/*main {*/
+/*    border: 4px solid #956536;*/
+/*}*/
+
+/*ul {*/
+/*    border: 4px solid #0059ff;*/
+/*}*/
+
+/*li {*/
+/*    border: 4px solid orange;*/
+/*}*/
+
+/*div {*/
+/*  border: 4px solid #e76455;*/
+/*}*/
+
+/*article {*/
+/*  border: 4px solid darkred;*/
+/*}*/
+
+/*p {*/
+/*  border: 4px solid darkcyan;*/
+/*}*/
+
+/*h1 {*/
+/*  border: 4px solid darkslateblue;*/
+/*}*/
+
+/*form {*/
+/*  border: 4px solid hotpink;*/
+/*}*/
+
+/*img {*/
+/*  border: 4px solid yellow;*/
+/*}*/
+
+/*.image-wrapper {*/
+/*    border: 4px solid #fb9468;*/
+/*}*/
+
+/*section {*/
+/*    border: 4px solid #444040;*/
+/*}*/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap');
+
+
+/* ------------------------------- GLOBAL STYLES -------------------------------- */
+
+:root {
+
+    --mint: #48c8bd;
+    --blue: #419FDAFF;
+
+    --red: #e83131;
+    --orange: #ffa500;
+    --black: #0C0C0C;
+    --grey: #7A7A7A;
+    --white: #ffffff;
+    --orangered: #FF4500FF;
+    --green: #008B8BFF;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Avenir, Arial, sans-serif;
+    font-size: 20px;
+    background-color: var(--grey);
+    text-align: center;
+}
+
+
+/* ---------------------------------------- REUSABLES ----------------------- */
+
+.outer-content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inner-content-container {
+    flex-basis: 1400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    margin: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.default-text-restrictor {
+    max-width: 850px;
+    text-align: center;
+}
+
+.default-area-padding {
+    padding: 20px 0;
+}
+
+
+/* --------------------------------------- AREAS ---------------------------------------- */
+
+
+/* --------------------------------------- HEADER ------------------------- */
+
+
+/*.header-image {*/
+/*    display: block;*/
+/*    width: 78px;*/
+/*    height: 100px;*/
+/*    margin: 60px 0 0 0;*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*    left: calc(50% - 39px);*/
+/*    !*background-image: url(./assets/squiggle_line_stripe.svg);*!*/
+/*}*/
+
+
+/* INNER HEADER */
+.inner-content-container-header {
+    flex-basis: 1400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.image-wrapper-small {
+    max-width: 100px;
+    flex-shrink: 1;
+    flex-grow: 0;
+}
+
+
+.image-wrapper-big {
+    max-width: 400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+}
+
+
+img {
+    max-width: 100%
+}
+
+
+.navbar {
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*align-items: flex-end;*/
+    /*justify-content: flex-end;*/
+    /*!*width: 100%;*!*/
+    /*flex-shrink: 1;*/
+    /*flex-grow: 0;*/
+}
+
+
+.navbar ul {
+    /*flex-basis: 400px;*/
+    /*flex-shrink: 1;*/
+    /*flex-grow: 0;*/
+    /*list-style-type: none;*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: space-between;*/
+}
+
+.button-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    /*flex-wrap: wrap;*/
+    /*height: 80px;*/
+    padding: 10px;
+    /*width: 250px;*/
+}
+
+
+.button-block-ul {
+    display: flex;
+    flex-shrink: 1;
+    flex-grow: 0;
+    list-style-type: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /*flex-basis: 400px;*/
+}
+
+
+/* ----------------------------------------- MAIN ------------------------- */
+
+
+main {
+    display: flex;
+    justify-content: center;
+    /*font-size: 16px;*/
+    /*margin: 10px;*/
+    /*max-width: 1000px;*/
+}
+
+
+button + button {
+    margin-left: 2em;
+}
+
+
+.page-title {
+    text-align: center;
+    color: var(--blue);
+}
+
+
+.page-container {
+    font-size: 20px;
+}
+
+
+.page-container img {
+    width: 30%;
+}
+
+
+.days-row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.service-tile__icon {
+    /*width: 100%;*/
+    border-radius: 100px;
+}
+
+
+.choice-item {
+    width: 200px;
+    height: 250px;
+    margin-top: 1em;
+    border-radius: 5px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.choice-item img {
+    width: 200px;
+    height: 200px;
+}
+
+
+/* ----------------------------------------- GRID -------------------------------- */
+
+
+.grid-service-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+
+.grid-service-tile {
+    /*flex-basis: 384px;*/
+    flex-basis: 480px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    margin: 10px;
+    /*background-color: var(--blue);*/
+    /*border: 2px solid #c6572f;*/
+    border-radius: 40px;
+    box-shadow: 0 11px 16px 0 rgba(0, 0, 0, 0.2);
+    /*color: #617d98;*/
+    font-size: 16px;
+}
+
+
+.activity-grid-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    grid-template-rows: auto auto auto;
+    /*padding: 10px;*/
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: wrap;
+}
+
+
+.box-title {
+    font-size: 25px;
+    color: var(--blue);
+}
+
+.box-image {
+    height: 250px;
+    width: 250px;
+    border-radius: 25%;
+}
+
+
+.box-price {
+    font-size: 20px;
+    color: var(--blue);
+}
+
+
+/* ----------------------------------------- FORMS -------------------------------- */
+
+.form-container {
+    max-width: 400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /*align-items: center;*/
+    /*text-align: left;*/
+    /*border-color: var(--black);*/
+    /*border-radius: 30px;*/
+    /*flex-basis: 1400px;*/
+    flex-shrink: 1;
+    flex-grow: 0;
+    /*margin: 0 20px;*/
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+
+.form-title {
+    /*justify-content: center;*/
+    /*text-align: center;*/
+    /*align-items: center;*/
+    /*align-content: center;*/
+    color: var(--blue);
+}
+
+
+/* --------------------------------------- TABLES -------------------------------- */
+
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    /*border-collapse: separate;*/
+    width: auto;
+    /*width: 90%;*/
+    /*margin: 20px 0;*/
+    margin-bottom: 1em;
+    font-size: 14px;
+    word-wrap: break-word;
+    /*border-spacing: 10px;*/
+    /*border-spacing: 0;*/
+}
+
+
+table td, table th {
+    border: 1px solid #48c8bd;
+    padding: 0.1em;
+}
+
+
+/*.table td, .items th {*/
+/*    border: 1px solid var(--orange);*/
+/*    padding: 0.1em;*/
+/*}*/
+
+
+table tr:nth-child(even) {
+    background-color: #918a8a;
+}
+
+table tr:hover {
+    background-color: #48c8bd;
+
+}
+
+table th {
+    background-color: #48c8bd;
+    color: white;
+    text-align: left;
+    padding-bottom: 1em;
+}
+
+td > img {
+    width: 60px;
+    border-radius: 50%;
+}
+
+
+.table-button {
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    color: var(--white);
+    border-color: var(--blue);
+    background-color: #48c8bd;
+    margin-left: 2em;
+}
+
+
+/* -------------------------------------- FOOTER --------------------------- */
+
+#footer {
+    background-color: var(--grey);
+    color: #686565;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+/* -------------------------------------- MEDIA QUERIES -------------------------------- */
+
+.mobile,
+.tablet,
+.desktop {
+    /*display: none;*/
+}
+
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+
+{/*<div
+className="wrapper">*/}
+{/*    <p className="mobile">Mobile</p>*/}
+{/*    <p className="tablet">Tablet</p>*/}
+{/*    <p className="desktop">Desktop</p>*/}
+{/*</div>*/}
+
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .mobile {
+        display: block;
+        background-color: #471919;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .tablet {
+        display: block;
+        background-color: #471919;
+    }
+}
+
+@media screen and (min-width: 292px) {
+    .desktop {
+        display: block;
+        background-color: #444040;
+    }
+}
+
+
+/*--------------------------------- MEDIA QUERIES TABLES ----------------------------------------*/
+
+@media screen and (max-width: 1200px) {
+    .table {
+        width: 100%
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .table {
+        width: 90%
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .table {
+        width: 80%
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .table {
+        width: 70%
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .table {
+        width: 60%
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .table {
+        width: 50%
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .table {
+        width: 40%
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .table {
+        width: 30%
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .table {
+        width: 20%
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .table {
+        width: 10%
+    }
+
+
+}

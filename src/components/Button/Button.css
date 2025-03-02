@@ -1,0 +1,60 @@
+
+button {
+    padding: 0.5em 1em;
+    background-color: var(--grey);
+    border-radius: 5px;
+    /*border-color: orangered;*/
+    border-color: var(--blue);
+}
+
+/*.activity-type-button {*/
+/*    border-radius: 50px;*/
+/*    font-size: 20px;*/
+/*    color: #48c8bd;*/
+/*    background-color: var(--white);*/
+/*}*/
+
+
+.sign-up-button:disabled,
+.select-button:disabled,
+.quantity-button:disabled,
+.reservate-button:disabled,
+.confirm-mailing-button:disabled {
+    background-color: #727575;
+}
+
+
+.activity-type-button,
+.day-button,
+.account-button,
+.startpagina-button,
+.manager-button,
+.reservate-button,
+.confirm-mailing-button,
+.buy-book-button,
+.sign-up-button,
+.login-button,
+.logout-button,
+.select-button,
+.quantity-button,
+.toggleButton {
+    font-size: 20px;
+    background-color: #48c8bd;
+    margin: 5px;
+}
+
+.print-list-button
+{
+    font-size: 20px;
+    background-color: #7a7a7a;
+}
+
+.confirm-booking-button {
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+
+button + button {
+    margin-left: 2em;
+}
